@@ -1,9 +1,20 @@
 $( document ).ready(function() {
 
   //initialize the leaflet map, set options and view
-  // var map = L.map('map')
   //   .setView({{latitude}},{{longitude}}], {{zoom}});
-
+var map = L.map('map', {
+      zoomControl: true,
+      
+      scrollWheelZoom: false
+    })
+    .setView([37.760693, -122.418475], 15);
+    
+    L.tileLayer(
+    'http://openmapsurfer.uni-hd.de/tiles/roadsg/x={x}&y={y}&z={z}', {
+      minZoom: 0,
+      maxZoom: 19,
+      attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
   // //add an OSM tileset as the base layer
   // L.tileLayer({{Url for Basemap tiles}},{
   //   attribution: {{Attribution Text}}
